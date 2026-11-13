@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Suraj</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+ background:linear-gradient(135deg,#090019,#260044,#090019);
+ color:white;font-family:Arial;text-align:center;
+ min-height:100vh;overflow-x:hidden;
+}
+.page{min-height:100vh;display:flex;align-items:center;
+justify-content:center;flex-direction:column;padding:20px}
+h1{color:#ffcf4a;text-shadow:0 0 20px #ff1493}
+.gift{font-size:110px;cursor:pointer;
+ animation:bounce 1.2s infinite}
+@keyframes bounce{50%{transform:translateY(-18px)}}
+button{
+ background:linear-gradient(90deg,#ff1493,#ffae00);
+ border:0;padding:15px 30px;border-radius:30px;
+ color:white;font-size:18px;font-weight:bold;
+ cursor:pointer;margin-top:25px;
+ box-shadow:0 0 20px #ff1493;
+}
+#surprise{display:none}
+.message{
+ background:#ffffff12;border:1px solid #ffffff40;
+ border-radius:20px;padding:25px;
+ max-width:420px;margin-top:25px;
+ box-shadow:0 0 25px #ff1493;
+}
+.cake{font-size:75px;margin:20px}
+p{line-height:1.8;color:#ffe5fa}
+.heart{font-size:25px;animation:bounce 1s infinite}
+.star{position:fixed;top:-20px;animation:fall 5s linear infinite}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<div class="page" id="opening">
+ <h1>🎁 A Special Surprise 🎁</h1>
+ <p style="margin:25px">Someone special has a birthday today...</p>
+ <div class="gift" onclick="openGift()">🎁</div>
+ <button onclick="openGift()">OPEN YOUR GIFT ❤️</button>
+ <p style="margin-top:25px">Made with love ❤️</p>
+</div>
+
+<div class="page" id="surprise">
+ <h1 style="font-size:35px">🎉 HAPPY BIRTHDAY 🎉</h1>
+ <h1 style="font-size:55px;margin-top:15px">SURAJ ❤️</h1>
+ <div class="cake">🎂</div>
+ <div class="message">
+  <h2>Dear Suraj! 💖</h2>
+  <p>
+   Aaj ka din bahut special hai! 🥳<br>
+   Tumhari life khushiyon se bhari rahe.<br>
+   Har sapna tumhara pura ho.<br>
+   Hamesha haste raho aur aage badhte raho! ✨
+  </p>
+  <div class="heart">❤️ ❤️ ❤️</div>
+  <h2 style="color:#ffcf4a;margin-top:15px">
+   MANY MANY HAPPY RETURNS OF THE DAY!
+  </h2>
+ </div>
+ <p style="margin-top:25px">🎈 Enjoy Your Special Day 🎈</p>
+ <button onclick="location.reload()">🔁 WATCH AGAIN</button>
+</div>
+
+<script>
+function openGift(){
+ document.getElementById("opening").style.display="none";
+ document.getElementById("surprise").style.display="flex";
+ for(let i=0;i<35;i++){
+  let s=document.createElement("div");
+  s.className="star";
+  s.innerHTML=["✨","💖","🎈","⭐"][Math.floor(Math.random()*4)];
+  s.style.left=Math.random()*100+"%";
+  s.style.animationDuration=(2+Math.random()*4)+"s";
+  document.body.appendChild(s);
+ }
+}
+</script>
+</body>
+</html>
